@@ -5,7 +5,6 @@ class Show extends Component {
   render() {
     return(
       <div>
-      I am a show
       </div>
     )
   }

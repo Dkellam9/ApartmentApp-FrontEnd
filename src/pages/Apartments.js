@@ -5,7 +5,6 @@ class Apartments extends Component {
   render() {
     return(
       <div>
-      I am an index
       </div>
     )
   }
