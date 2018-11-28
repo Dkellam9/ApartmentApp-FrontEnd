@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { Panel } from 'react-bootstrap';
 import '../App.css';
 
-class Home extends Component {
+class About extends Component {
   render() {
     return(
       <div>
-      Pointless
+    );
       </div>
     )
   }
 }
 
-export default Home;
+export default About;
