@@ -8,30 +8,31 @@ import '../App.css';
 class NewApartment extends Component {
   constructor(props) {
     super(props)
-      this.state = {
-        status: "LOADING",
-        apartment: {
-          address1: '',
-          address2: '',
-          city: '',
-          state: '',
-          postalcode: '',
-          managername: '',
-          managerphone: '',
-          managerhours: '',
-        }
+    this.state = {
+      status: "LOADING",
+      apartment: {
+        address1: '420 Cool St.',
+        address2: 'Apt. ',
+        city: 'Weedsport',
+        state: 'NJ',
+        postalcode: '12345',
+        managername: 'Alex',
+        managerphone: '(123)456-7890',
+        managerhours: '8am-5pm M-F',
       }
     }
+  }
 
   handleChange(event) {
     let { apartment } = this.state
     apartment[event.target.name] = event.target.value
-    this.setState({apartment: apartment})
+    this.setState({ apartment: apartment })
   }
 
   handleNewApartment(event) {
     let { apartment } = this.state
     event.preventDefault()
+    console.log(apartment)
     newApartment(apartment)
     .then(json => {
       console.log(json)
@@ -53,36 +54,36 @@ class NewApartment extends Component {
               name="address1"
               type="text"
               placeholder="Street Address"
-              onChange={this.handleChange.bind(this)}
               value={apartment.address1}
+              onChange={this.handleChange.bind(this)}
             />
             <FormControl
               name="address2"
               type="text"
               placeholder="Apartment Number"
-              onChange={this.handleChange.bind(this)}
               value={apartment.address2}
+              onChange={this.handleChange.bind(this)}
             />
             <FormControl
               name="city"
               type="text"
               placeholder="City"
-              onChange={this.handleChange.bind(this)}
               value={apartment.city}
+              onChange={this.handleChange.bind(this)}
             />
             <FormControl
               name="state"
               type="text"
               placeholder="State"
-              onChange={this.handleChange.bind(this)}
               value={apartment.state}
+              onChange={this.handleChange.bind(this)}
             />
             <FormControl
               name="postalcode"
               type="number"
               placeholder="Zip Code"
-              onChange={this.handleChange.bind(this)}
               value={apartment.postalcode}
+              onChange={this.handleChange.bind(this)}
             />
           </FormGroup>
 
@@ -91,22 +92,22 @@ class NewApartment extends Component {
               name="managername"
               type="text"
               placeholder="Manager Name"
-              onChange={this.handleChange.bind(this)}
               value={apartment.managername}
+              onChange={this.handleChange.bind(this)}
             />
             <FormControl
               name="managerphone"
               type="text"
               placeholder="Manager Phone"
-              onChange={this.handleChange.bind(this)}
               value={apartment.managerphone}
+              onChange={this.handleChange.bind(this)}
             />
             <FormControl
               name="managerhours"
               type="text"
               placeholder="Manager Hours"
-              onChange={this.handleChange.bind(this)}
               value={apartment.managerhours}
+              onChange={this.handleChange.bind(this)}
             />
             <br />
             <FormControl
