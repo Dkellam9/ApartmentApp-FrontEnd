@@ -37,6 +37,20 @@ export default class AuthService {
 		})
 	}
 
+	newApartment = (apartment) => {
+	  console.log(apartment)
+	  return this.authFetch(this.domain + '/apartments', {
+			method: "POST",
+	    body: JSON.stringify(apartment),  // <- we need to stringify the json for fetch
+	     // <- Here's our verb, so the correct endpoint is invoked on the server
+	  })
+	  .then(resp => {
+	    console.log(resp)
+	    let json = resp.json()
+	    console.log(json)
+	    return json
+	  })
+	}
 	loggedIn() {
 		const token = this.getToken()
 		return !!token && !this.isTokenExpired(token)
@@ -74,7 +88,9 @@ export default class AuthService {
 	}
 
 	getUserId = () => {
-		const token = decode(this.getToken());
+		const token = decode(this.getToken(), {
+			header: true
+		});
 		return token.sub
 	}
 
@@ -87,7 +103,7 @@ export default class AuthService {
 		if (this.loggedIn()) {
 			headers['Authorization'] = 'Bearer ' + this.getToken()
 		}
-
+		console.log(url, options);
 		return fetch(url, {
 			headers,
 			...options
